@@ -1,53 +1,107 @@
-# React + TypeScript + Vite
+# Team Task Management Hub - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based frontend application for managing team tasks collaboratively. Built with TypeScript, Vite, and Zustand for state management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Task Management**: Create, view, and manage team tasks
+- **Search Functionality**: Filter tasks by title
+- **Responsive UI**: Clean and intuitive user interface
+- **Real-time Updates**: Integrated with backend API for live task synchronization
+- **Form Validation**: Robust form handling with React Hook Form
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19**: Modern React with hooks
+- **TypeScript**: Type-safe development
+- **Vite**: Fast build tool and development server
+- **Zustand**: Lightweight state management
+- **Axios**: HTTP client for API calls
+- **React Hook Form**: Form handling and validation
+- **ESLint**: Code linting and formatting
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+frontend/
+├── public/                 # Static assets
+├── src/
+│   ├── api/               # API configuration (Axios)
+│   ├── components/        # Reusable UI components
+│   │   ├── taskform.tsx   # Task creation form
+│   │   ├── tasklist.tsx   # Task list display
+│   │   ├── taskcard.tsx   # Individual task card
+│   │   └── searchbar.tsx  # Search input component
+│   ├── page/              # Page components
+│   │   └── dashboard.tsx  # Main dashboard page
+│   ├── schema/            # Data schemas and types
+│   ├── store/             # State management (Zustand)
+│   ├── App.tsx            # Main app component
+│   └── main.tsx           # App entry point
+├── package.json           # Dependencies and scripts
+├── vite.config.ts         # Vite configuration
+├── tsconfig.json          # TypeScript configuration
+└── eslint.config.js       # ESLint configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+### Build
+
+Build the application for production:
+```bash
+npm run build
+```
+
+### Preview
+
+Preview the production build:
+```bash
+npm run preview
+```
+
+### Linting
+
+Run ESLint to check code quality:
+```bash
+npm run lint
+```
+
+## API Integration
+
+The frontend communicates with a backend API for task management. Ensure the backend server is running and update the API base URL in `src/api/axios.ts` if necessary.
+
+## Contributing
+
+1. Follow the existing code style and TypeScript types
+2. Run linting before committing
+3. Test changes in development mode
+4. Ensure compatibility with the backend API
+
+## License
+
+This project is part of the Team Task Management Hub system.
 import reactDom from 'eslint-plugin-react-dom'
 
 export default defineConfig([
