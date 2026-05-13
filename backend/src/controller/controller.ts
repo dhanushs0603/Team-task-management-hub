@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { v4 as uuid } from "uuid";
 import { tasks } from "../data/tasks";
 import { taskSchema } from "../validator/task_validator";
+
 export const getTasks = (req: Request, res: Response) => {
   res.json({ success: true, data: tasks });
 };
